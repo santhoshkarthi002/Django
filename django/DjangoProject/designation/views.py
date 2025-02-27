@@ -26,17 +26,13 @@ class DesignationDetailViewBYID(APIView):
 
     def delete(self, request, id):
         designation_data = Designation.objects.get(id=id)
-        designation_data.save()
+        designation_data.delete()
         return Response('Designation deleted successfully')
     
     def get(self, request, id):
         try:
             designation_data = Designation.objects.get(id=id)
-            if not designation_data.exists():
-                return Response({"error":"No data found"}, status=status.HTTP_404_NOT_FOUND)
             serializer = designationSerializers(designation_data)
             return Response(serializer.data)
         except Exception as e:
             return Response({"error":'Something went wrong',"details" : str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-            
-
