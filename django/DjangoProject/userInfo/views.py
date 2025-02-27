@@ -12,15 +12,12 @@ class UserInfoView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=400)
-        new_user.save()
-        return Response('User created successfully')
 
     def get(self, request):
         user_data = UserInfo.objects.all()
         get_users_data = userInfoSerializer(user_data, many=True).data
         print(get_users_data)
         return Response(get_users_data)
-
 
 class UserInfoDetailViewBYID(APIView):
 
