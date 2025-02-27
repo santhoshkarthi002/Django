@@ -1,0 +1,41 @@
+
+Python - Django rest framework
+
+1. Create a virtual environment
+   --> Install Python 3.x from https://www.python.org/downloads/ and add it to PATH (Environment Variables -> System Variables -> Path)
+
+   **  py -3 -m venv .venv **
+
+2. Activate the virtual environment
+    --> Open a new command prompt
+
+    ** .venv\Scripts\activate **
+
+3. Install the required packages
+    pip install django
+    pip install djangorestframework
+
+4. Create a new Django project
+    django-admin startproject DjangoProject
+
+5. Create a new app
+    cd DjangoProject
+    python manage.py startapp userInfo
+
+6. Create a new model
+    cd userInfo
+    1. create class for the model and add the fields for database table
+
+7.  migration
+    python manage.py makemigrations
+    python manage.py migrate
+
+8. Create a new serializer
+    serializer for the model
+
+9. update view.py for the api
+
+10. create a url.py for the app api and it will be add to project urls.py
+
+11. run the server
+    python manage.py runserver
